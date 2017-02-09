@@ -122,10 +122,10 @@ class MultiPatchWindow(QtGui.QWidget):
         self.ui.fineSearchBtn.clicked.connect(self.fineSearch)
         self.ui.hideMarkersBtn.toggled.connect(self.hideBtnToggled)
         self.ui.sealBtn.clicked.connect(self.sealClicked)
+        self.ui.breakInBtn.clicked.connect(self.breakInClicked)
         self.ui.recordBtn.toggled.connect(self.recordToggled)
         self.ui.resetBtn.clicked.connect(self.resetHistory)
         self.ui.reSealBtn.clicked.connect(self.reSeal)
-
         self.ui.fastBtn.clicked.connect(lambda: self.ui.slowBtn.setChecked(False))
         self.ui.slowBtn.clicked.connect(lambda: self.ui.fastBtn.setChecked(False))
 
@@ -424,12 +424,19 @@ class MultiPatchWindow(QtGui.QWidget):
             (4, 2): self.ui.fastBtn,
             (6, 2): self.ui.homeBtn,
             (5, 0): self.ui.reSealBtn,
+            (7, 0): self.ui.breakInBtn,
         }
         action = actions.get(key, None)
         if action is None:
             return
         action.click()
         self.updateXKeysBacklight()
+
+    def breakInClicked(self):
+        pips = self.selectedPipettes()
+        for pip in pips:
+            if isinstance(pip, PatchPipette):
+                pip.setState('breakin')
 
     def sealClicked(self):
         pips = self.selectedPipettes()

@@ -42,6 +42,9 @@ class MIESPatchPipette(PatchPipette):
         elif state == 'bath':
             self.mies.selectHeadstage(self._headstage)
             self.mies.clickApproach()
+        elif state == 'breakin':
+            self.mies.selectHeadstage(self._headstage)
+            self.mies.clickBreakIn()
 
     def setActive(self, active):
         self.mies.setHeadstageActive(self._headstage, active)

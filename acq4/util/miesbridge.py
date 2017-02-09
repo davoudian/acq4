@@ -34,6 +34,9 @@ class MIESBridge(object):
     def clickSeal(self):
         return self.setCtrl("button_DataAcq_Seal")
 
+    def clickBreakIn(self):
+        return self.setCtrl("button_DataAcq_BreakIn")
+
     def setHeadstageActive(self, hs, active):
         return self.setCtrl('Check_DataAcqHS_%02d' % hs, active)
 

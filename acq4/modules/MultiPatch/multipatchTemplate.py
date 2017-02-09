@@ -76,9 +76,6 @@ class Ui_MultiPatch(object):
         self.slowBtn.setCheckable(True)
         self.slowBtn.setObjectName(_fromUtf8("slowBtn"))
         self.gridLayout.addWidget(self.slowBtn, 3, 0, 1, 1)
-        self.breakInBtn = QtGui.QPushButton(MultiPatch)
-        self.breakInBtn.setObjectName(_fromUtf8("breakInBtn"))
-        self.gridLayout.addWidget(self.breakInBtn, 4, 2, 1, 1)
         self.stepInBtn = QtGui.QPushButton(MultiPatch)
         self.stepInBtn.setObjectName(_fromUtf8("stepInBtn"))
         self.gridLayout.addWidget(self.stepInBtn, 5, 0, 1, 1)
@@ -122,6 +119,9 @@ class Ui_MultiPatch(object):
         self.reSealBtn = QtGui.QPushButton(MultiPatch)
         self.reSealBtn.setObjectName(_fromUtf8("reSealBtn"))
         self.gridLayout.addWidget(self.reSealBtn, 7, 1, 1, 1)
+        self.breakInBtn = QtGui.QPushButton(MultiPatch)
+        self.breakInBtn.setObjectName(_fromUtf8("breakInBtn"))
+        self.gridLayout.addWidget(self.breakInBtn, 3, 1, 1, 1)
 
         self.retranslateUi(MultiPatch)
         QtCore.QMetaObject.connectSlotsByName(MultiPatch)
@@ -150,5 +150,6 @@ class Ui_MultiPatch(object):
         self.toTargetBtn.setText(_translate("MultiPatch", "To target", None))
         self.resetBtn.setText(_translate("MultiPatch", "Reset History", None))
         self.reSealBtn.setText(_translate("MultiPatch", "ReSeal", None))
+        self.breakInBtn.setText(_translate("MultiPatch", "BreakIn", None))
 
 from acq4.pyqtgraph import SpinBox
