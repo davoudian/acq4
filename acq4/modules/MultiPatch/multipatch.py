@@ -225,7 +225,7 @@ class MultiPatchWindow(QtGui.QWidget):
         return default
 
     def coarseSearch(self):
-        self.moveSearch(self.module.config.get('coarseSearchDistance', 400e-6))
+        self.moveSearch(self.module.config.get('coarseSearchDistance', 1000e-6))
 
     def fineSearch(self):
         pips = self.selectedPipettes()
@@ -376,7 +376,8 @@ class MultiPatchWindow(QtGui.QWidget):
         if self.xkdev is None:
             return
         sel = self.selectedPipettes()
-        bl = np.zeros(self.xkdev.keyshape + (2,), dtype='ubyte')
+        # bl = np.zeros(self.xkdev.keyshape + (2,), dtype='ubyte')
+        bl = self.xkdev.getBacklights()
         for i, ctrl in enumerate(self.pipCtrls):
             pip = ctrl.pip
             bl[0, i+4, 0] = 1 if ctrl.selected() else 0
